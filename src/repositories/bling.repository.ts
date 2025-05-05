@@ -63,8 +63,21 @@ export class BlingRepository implements IBlingRepository {
       data?: unknown
     }
   ): Promise<T> {
-    const url = new URL(`${this.props.baseUrl}${endpoint}`)
-    url.search = new URLSearchParams(options.params as any).toString()
+    const url = new URL(`${this.props.baseUrl}/${endpoint}`)
+    if (options.params) {
+      url.search = Object.entries(options.params)
+        .filter(([_, v]) => v !== undefined)
+        .reduce((urlParams, [k, v]) => {
+          ;(Array.isArray(v) ? v : [v]).forEach((item) =>
+            urlParams.append(
+              k,
+              item instanceof Date ? item.toISOString() : String(item)
+            )
+          )
+          return urlParams
+        }, new URLSearchParams())
+        .toString()
+    }
 
     return fetch(url, {
       method,
@@ -76,7 +89,7 @@ export class BlingRepository implements IBlingRepository {
       body: options.data ? JSON.stringify(options.data) : undefined
     })
       .then(async (response) => {
-        const data = await response.json()
+        const data: any = await response.json()
         if (response.ok) {
           return (
             options.headers?.shouldIncludeHeadersInResponse

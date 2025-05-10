@@ -1,21 +1,14 @@
 {
-  "name": "bling-erp-api",
+  "name": "bling-erp-sdk",
   "version": "5.8.0",
-  "description": "Pacote de integração com a API do Bling ERP",
-  "main": "lib/bling.js",
-  "module": "lib/esm/bling.js",
-  "types": "lib/bling.d.ts",
-  "directories": {
-    "test": "test"
-  },
+  "description": "SDK não oficial para a API do Bling ERP.",
   "files": [
     "lib/**/*"
   ],
   "scripts": {
     "prepare": "npm run build",
-    "build": "npm run build:cjs && npm run build:esm",
-    "build:cjs": "tsc --project tsconfig.build.json",
-    "build:esm": "tsc --project tsconfig.esm.build.json",
+    "build": "npm run build:esm",
+    "build:esm": "tsc --project tsconfig.build.json",
     "format": "prettier --write 'src/**/*.ts'",
     "lint": "eslint --fix 'src/**/*.ts'",
     "test": "npm run build && jest --config jest.config.ts",
@@ -23,36 +16,33 @@
   },
   "exports": {
     ".": {
-      "import": "./lib/esm/bling.js",
-      "require": "./lib/bling.js",
+      "import": "./lib/bling.js",
       "types": "./lib/bling.d.ts"
     }
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/AlexandreBellas/bling-erp-api-js.git"
+    "url": "git+https://github.com/raggesilver/bling-erp-api-js.git"
   },
   "keywords": [
-    "javascript",
     "api",
-    "php",
+    "sdk",
     "typescript",
-    "csharp",
-    "integration",
-    "js",
     "erp",
-    "ts",
-    "nfe",
-    "sefaz",
     "bling",
-    "bling-erp"
+    "bling-erp",
+    "bling-api"
   ],
-  "author": "AlexandreBellas; vitor-san",
-  "license": "ISC",
+  "author": "Paulo Queiroz",
+  "contributors": [
+    "Alexandre Bellas",
+    "vitor-san"
+  ],
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/AlexandreBellas/bling-erp-api-js/issues"
+    "url": "https://github.com/raggesilver/bling-erp-api-js/issues"
   },
-  "homepage": "https://github.com/AlexandreBellas/bling-erp-api-js#readme",
+  "homepage": "https://github.com/raggesilver/bling-erp-api-js#readme",
   "devDependencies": {
     "@types/chance": "^1.1.6",
     "@types/jest": "^29.5.11",

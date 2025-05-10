@@ -1,4 +1,0 @@
-{
-  "extends": "./tsconfig.esm.json",
-  "exclude": ["src/**/*.spec.ts", "src/entities/**/__tests__"]
-}

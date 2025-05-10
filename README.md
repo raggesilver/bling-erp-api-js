@@ -1,27 +1,24 @@
-- [Versão em PHP](https://github.com/AlexandreBellas/bling-erp-api-php)
-- Versão em C# (em breve)
+# Bling ERP SDK (não oficial)
 
-# Bling ERP API - Javascript/Typescript
+SDK sem dependências, exclusivamente ESM, e compatível com Node.js, Bun, Deno (não testado), e Cloudflare Workers.
 
-[![](https://img.shields.io/npm/v/bling-erp-api.svg)](https://www.npmjs.com/package/bling-erp-api)
-[![install size](https://packagephobia.com/badge?p=bling-erp-api)](https://packagephobia.com/result?p=bling-erp-api)
-[![code coverage](https://coveralls.io/repos/github/AlexandreBellas/bling-erp-api-js/badge.svg?branch=main)](https://coveralls.io/github/AlexandreBellas/bling-erp-api?branch=main)
+> Este é um fork mantido por Paulo Queiroz. O [repositório original de Alexandre Bellas](https://github.com/AlexandreBellas/bling-erp-api-js) parece estar abandonado.
 
 Pacote de integração com a [API v3 do ERP Bling](https://developer.bling.com.br)
-para Javascript/TypeScript. O mais completo existente.
+para JavaScript/TypeScript.
 
 Atualizado com a versão `v310` da API ([veja o registro de alterações](https://developer.bling.com.br/changelogs#2024-10-02)).
-
-**Atenção**: a versão 5.0.0+ do `bling-erp-api` para Javascript/TypeScript
-utiliza a API v3 do Bling. Caso deseja utilizar a API v2 do Bling,
-[utilize a versão 4.0.0](https://github.com/AlexandreBellas/bling-erp-api-js/tree/v4.0.0).
 
 ## Instalação
 
 Para instalar, execute o comando:
 
 ```bash
-npm i bling-erp-api
+npm i bling-erp-sdk
+# ou
+pnpm add bling-erp-sdk
+# ou
+bun add bling-erp-sdk
 ```
 
 ## Criação de uma nova conexão
@@ -29,7 +26,7 @@ npm i bling-erp-api
 Para criar uma conexão ao serviço do Bling, basta instanciar o objeto com a [API key](https://developer.bling.com.br/autenticacao) em seu construtor.
 
 ```js
-import Bling from 'bling-erp-api'
+import Bling from 'bling-erp-sdk'
 
 const apiKey = 'sua_api_key'
 const blingConnection = new Bling(apiKey)
@@ -40,7 +37,7 @@ pela biblioteca**. Ou seja, a biblioteca somente recebe o `access_token` gerado
 a partir do _endpoint_ `/token`. [Veja a referência](https://developer.bling.com.br/aplicativos#tokens-de-acesso).
 
 Para entender na prática como a autenticação citada acima funciona, [veja o
-projeto de demonstração](https://github.com/AlexandreBellas/bling-erp-api-js/tree/main/demo).
+projeto de demonstração](https://github.com/raggesilver/bling-erp-api-js/tree/main/demo).
 
 ## Entidades disponíveis
 
@@ -94,7 +91,7 @@ Todas as entidades do Bling atualmente são permitidas para interação. São el
 Para listar seus produtos, basta executar:
 
 ```js
-import Bling from 'bling-erp-api'
+import Bling from 'bling-erp-sdk'
 
 const apiKey = 'sua_api_key'
 const blingConnection = new Bling(apiKey)
@@ -114,5 +111,9 @@ npm run test
 
 ## Contribuindo ao projeto
 
-- [Guia de contribuição](https://github.com/AlexandreBellas/bling-erp-api-js/blob/v5.0.0/CONTRIBUTING.md)
-- [Apoie o projeto](https://www.paypal.com/donate/?hosted_button_id=G2NJKZ5MUMKBS)
+- [Guia de contribuição](CONTRIBUTING.md)
+- Para relatar problemas ou sugerir melhorias, por favor abra uma issue no repositório.
+
+## Agradecimentos
+
+Este projeto é um fork do trabalho original de [Alexandre Bellas](https://github.com/AlexandreBellas/bling-erp-api-js).

@@ -13,11 +13,11 @@ describe('Empresas entity', () => {
   })
 
   afterEach(() => {
-    jest.restoreAllMocks()
+    vi.restoreAllMocks()
   })
 
   it('should get successfully', async () => {
-    const spy = jest.spyOn(repository, 'index')
+    const spy = vi.spyOn(repository, 'index')
     repository.setResponse(meResponse)
 
     const response = await entity.me()

@@ -30,12 +30,12 @@ describe('Contas a receber entity', () => {
   })
 
   afterEach(() => {
-    jest.restoreAllMocks()
+    vi.restoreAllMocks()
   })
 
   it('should delete successfully', async () => {
     const idContaReceber = chance.natural()
-    const spy = jest.spyOn(repository, 'destroy')
+    const spy = vi.spyOn(repository, 'destroy')
     repository.setResponse(deleteResponse)
 
     const response = await entity.delete({ idContaReceber })
@@ -50,7 +50,7 @@ describe('Contas a receber entity', () => {
   })
 
   it('should get successfully', async () => {
-    const spy = jest.spyOn(repository, 'index')
+    const spy = vi.spyOn(repository, 'index')
     repository.setResponse(getResponse)
 
     const response = await entity.get()
@@ -76,7 +76,7 @@ describe('Contas a receber entity', () => {
   })
 
   it('should find successfully', async () => {
-    const spy = jest.spyOn(repository, 'show')
+    const spy = vi.spyOn(repository, 'show')
     const idContaReceber = chance.natural()
     repository.setResponse(findResponse)
 
@@ -92,7 +92,7 @@ describe('Contas a receber entity', () => {
   })
 
   it('should get bank slips successfully', async () => {
-    const spy = jest.spyOn(repository, 'index')
+    const spy = vi.spyOn(repository, 'index')
     const idOrigem = chance.natural()
     repository.setResponse(getBankSlipsResponse)
 
@@ -113,7 +113,7 @@ describe('Contas a receber entity', () => {
   })
 
   it('should create successfully', async () => {
-    const spy = jest.spyOn(repository, 'store')
+    const spy = vi.spyOn(repository, 'store')
     repository.setResponse(createResponse)
 
     const response = await entity.create(createRequestBody)
@@ -129,7 +129,7 @@ describe('Contas a receber entity', () => {
 
   it('should download successfully', async () => {
     const idContaReceber = chance.natural()
-    const spy = jest.spyOn(repository, 'store')
+    const spy = vi.spyOn(repository, 'store')
     repository.setResponse(downloadResponse)
 
     const response = await entity.download({
@@ -147,7 +147,7 @@ describe('Contas a receber entity', () => {
   })
 
   it('should cancel bank slips successfully', async () => {
-    const spy = jest.spyOn(repository, 'store')
+    const spy = vi.spyOn(repository, 'store')
     repository.setResponse(cancelBankSlipsResponse)
 
     const response = await entity.cancelBankSlips(cancelBankSlipRequest)
@@ -162,7 +162,7 @@ describe('Contas a receber entity', () => {
   })
 
   it('should update successfully', async () => {
-    const spy = jest.spyOn(repository, 'replace')
+    const spy = vi.spyOn(repository, 'replace')
     const idContaReceber = chance.natural()
     repository.setResponse(updateResponse)
 

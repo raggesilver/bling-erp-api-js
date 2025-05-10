@@ -20,11 +20,11 @@ describe('Canais de Venda entity', () => {
   })
 
   afterEach(() => {
-    jest.restoreAllMocks()
+    vi.restoreAllMocks()
   })
 
   it('should get successfully', async () => {
-    const spy = jest.spyOn(repository, 'index')
+    const spy = vi.spyOn(repository, 'index')
     repository.setResponse(getResponse)
 
     const response = await entity.get()
@@ -45,7 +45,7 @@ describe('Canais de Venda entity', () => {
   })
 
   it('should find successfully', async () => {
-    const spy = jest.spyOn(repository, 'show')
+    const spy = vi.spyOn(repository, 'show')
     const idCanalVenda = chance.natural()
     repository.setResponse(findResponse)
 
@@ -61,7 +61,7 @@ describe('Canais de Venda entity', () => {
   })
 
   it('should get types successfully', async () => {
-    const spy = jest.spyOn(repository, 'index')
+    const spy = vi.spyOn(repository, 'index')
     repository.setResponse(getTypesResponse)
 
     const response = await entity.getTypes()

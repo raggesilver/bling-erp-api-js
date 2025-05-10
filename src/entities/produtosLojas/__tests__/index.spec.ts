@@ -19,12 +19,12 @@ describe('Produtos - Lojas entity', () => {
   })
 
   afterEach(() => {
-    jest.restoreAllMocks()
+    vi.restoreAllMocks()
   })
 
   it('should delete successfully', async () => {
     const idProdutoLoja = chance.natural()
-    const spy = jest.spyOn(repository, 'destroy')
+    const spy = vi.spyOn(repository, 'destroy')
     repository.setResponse(deleteResponse)
 
     const response = await entity.delete({ idProdutoLoja })
@@ -37,7 +37,7 @@ describe('Produtos - Lojas entity', () => {
   })
 
   it('should get successfully', async () => {
-    const spy = jest.spyOn(repository, 'index')
+    const spy = vi.spyOn(repository, 'index')
     repository.setResponse(getResponse)
 
     const response = await entity.get()
@@ -56,7 +56,7 @@ describe('Produtos - Lojas entity', () => {
   })
 
   it('should find successfully', async () => {
-    const spy = jest.spyOn(repository, 'show')
+    const spy = vi.spyOn(repository, 'show')
     const idProdutoLoja = chance.natural()
     repository.setResponse(findResponse)
 
@@ -70,7 +70,7 @@ describe('Produtos - Lojas entity', () => {
   })
 
   it('should create successfully', async () => {
-    const spy = jest.spyOn(repository, 'store')
+    const spy = vi.spyOn(repository, 'store')
     repository.setResponse(createResponse)
 
     const response = await entity.create(createRequestBody)
@@ -83,7 +83,7 @@ describe('Produtos - Lojas entity', () => {
   })
 
   it('should update successfully', async () => {
-    const spy = jest.spyOn(repository, 'replace')
+    const spy = vi.spyOn(repository, 'replace')
     const idProdutoLoja = chance.natural()
     repository.setResponse(updateResponse)
 

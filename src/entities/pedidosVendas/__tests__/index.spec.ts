@@ -35,11 +35,11 @@ describe('Pedidos - Vendas entity', () => {
   })
 
   afterEach(() => {
-    jest.restoreAllMocks()
+    vi.restoreAllMocks()
   })
 
   it('should delete many successfully', async () => {
-    const spy = jest.spyOn(repository, 'destroy')
+    const spy = vi.spyOn(repository, 'destroy')
     repository.setResponse(deleteManyResponse)
     const idsPedidosVendas: number[] = []
     for (let i = 0; i < chance.natural({ min: 1, max: 5 }); i++) {
@@ -61,7 +61,7 @@ describe('Pedidos - Vendas entity', () => {
 
   it('should delete successfully', async () => {
     const idPedidoVenda = chance.natural()
-    const spy = jest.spyOn(repository, 'destroy')
+    const spy = vi.spyOn(repository, 'destroy')
     repository.setResponse(deleteResponse)
 
     const response = await entity.delete({ idPedidoVenda })
@@ -77,7 +77,7 @@ describe('Pedidos - Vendas entity', () => {
   })
 
   it('should get successfully', async () => {
-    const spy = jest.spyOn(repository, 'index')
+    const spy = vi.spyOn(repository, 'index')
     repository.setResponse(getResponse)
 
     const response = await entity.get()
@@ -109,7 +109,7 @@ describe('Pedidos - Vendas entity', () => {
   })
 
   it('should find successfully', async () => {
-    const spy = jest.spyOn(repository, 'show')
+    const spy = vi.spyOn(repository, 'show')
     const idPedidoVenda = chance.natural()
     repository.setResponse(findResponse)
 
@@ -126,7 +126,7 @@ describe('Pedidos - Vendas entity', () => {
   })
 
   it('should change situation successfully', async () => {
-    const spy = jest.spyOn(repository, 'update')
+    const spy = vi.spyOn(repository, 'update')
     const idPedidoVenda = chance.natural()
     const idSituacao = 0
     repository.setResponse(changeSituationResponse)
@@ -145,7 +145,7 @@ describe('Pedidos - Vendas entity', () => {
   })
 
   it('should post stock to deposit successfully', async () => {
-    const spy = jest.spyOn(repository, 'store')
+    const spy = vi.spyOn(repository, 'store')
     const idPedidoVenda = chance.natural()
     const idDeposito = chance.natural()
     repository.setResponse(postStockToDepositResponse)
@@ -166,7 +166,7 @@ describe('Pedidos - Vendas entity', () => {
   })
 
   it('should post stock successfully', async () => {
-    const spy = jest.spyOn(repository, 'store')
+    const spy = vi.spyOn(repository, 'store')
     const idPedidoVenda = chance.natural()
     repository.setResponse(postStockResponse)
 
@@ -183,7 +183,7 @@ describe('Pedidos - Vendas entity', () => {
   })
 
   it('should reverse stock successfully', async () => {
-    const spy = jest.spyOn(repository, 'store')
+    const spy = vi.spyOn(repository, 'store')
     const idPedidoVenda = chance.natural()
     repository.setResponse(reverseStockResponse)
 
@@ -200,7 +200,7 @@ describe('Pedidos - Vendas entity', () => {
   })
 
   it('should post accounts successfully', async () => {
-    const spy = jest.spyOn(repository, 'store')
+    const spy = vi.spyOn(repository, 'store')
     const idPedidoVenda = chance.natural()
     repository.setResponse(postAccountsResponse)
 
@@ -217,7 +217,7 @@ describe('Pedidos - Vendas entity', () => {
   })
 
   it('should reverse accounts successfully', async () => {
-    const spy = jest.spyOn(repository, 'store')
+    const spy = vi.spyOn(repository, 'store')
     const idPedidoVenda = chance.natural()
     repository.setResponse(reverseAccountsResponse)
 
@@ -234,7 +234,7 @@ describe('Pedidos - Vendas entity', () => {
   })
 
   it('should generate nfe successfully', async () => {
-    const spy = jest.spyOn(repository, 'store')
+    const spy = vi.spyOn(repository, 'store')
     const idPedidoVenda = chance.natural()
     repository.setResponse(generateNfeResponse)
 
@@ -251,7 +251,7 @@ describe('Pedidos - Vendas entity', () => {
   })
 
   it('should generate nfce successfully', async () => {
-    const spy = jest.spyOn(repository, 'store')
+    const spy = vi.spyOn(repository, 'store')
     const idPedidoVenda = chance.natural()
     repository.setResponse(generateNfceResponse)
 
@@ -268,7 +268,7 @@ describe('Pedidos - Vendas entity', () => {
   })
 
   it('should create successfully', async () => {
-    const spy = jest.spyOn(repository, 'store')
+    const spy = vi.spyOn(repository, 'store')
     repository.setResponse(createResponse)
 
     const response = await entity.create(createRequestBody)
@@ -284,7 +284,7 @@ describe('Pedidos - Vendas entity', () => {
   })
 
   it('should update successfully', async () => {
-    const spy = jest.spyOn(repository, 'replace')
+    const spy = vi.spyOn(repository, 'replace')
     const idPedidoVenda = chance.natural()
     repository.setResponse(updateResponse)
 

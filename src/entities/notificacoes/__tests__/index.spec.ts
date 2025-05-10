@@ -16,11 +16,11 @@ describe('Notificações entity', () => {
   })
 
   afterEach(() => {
-    jest.restoreAllMocks()
+    vi.restoreAllMocks()
   })
 
   it('should get successfully', async () => {
-    const spy = jest.spyOn(repository, 'index')
+    const spy = vi.spyOn(repository, 'index')
     repository.setResponse(getResponse)
 
     const response = await entity.get()
@@ -35,7 +35,7 @@ describe('Notificações entity', () => {
   })
 
   it('should read successfully', async () => {
-    const spy = jest.spyOn(repository, 'store')
+    const spy = vi.spyOn(repository, 'store')
     const idNotificacao = chance.word()
     repository.setResponse(createResponse)
 

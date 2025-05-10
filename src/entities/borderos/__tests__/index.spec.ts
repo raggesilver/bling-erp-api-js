@@ -16,12 +16,12 @@ describe('Borderôs entity', () => {
   })
 
   afterEach(() => {
-    jest.restoreAllMocks()
+    vi.restoreAllMocks()
   })
 
   it('should delete borderô successfully', async () => {
     const idBordero = chance.natural()
-    const spy = jest.spyOn(repository, 'destroy')
+    const spy = vi.spyOn(repository, 'destroy')
     repository.setResponse(deleteResponse)
 
     const response = await entity.delete({ idBordero })
@@ -35,7 +35,7 @@ describe('Borderôs entity', () => {
 
   it('should find borderô successfully', async () => {
     const idBordero = chance.natural()
-    const spy = jest.spyOn(repository, 'show')
+    const spy = vi.spyOn(repository, 'show')
     repository.setResponse(findResponse)
 
     const response = await entity.find({ idBordero })

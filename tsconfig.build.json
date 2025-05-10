@@ -1,4 +1,7 @@
 {
+  "compilerOptions": {
+    "types": [] // For some reason, vitest globals break the build
+  },
   "extends": "./tsconfig.json",
   "exclude": ["src/**/*.spec.ts", "src/entities/**/__tests__"]
 }

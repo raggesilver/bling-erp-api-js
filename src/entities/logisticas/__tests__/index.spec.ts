@@ -19,12 +19,12 @@ describe('Logísticas entity', () => {
   })
 
   afterEach(() => {
-    jest.restoreAllMocks()
+    vi.restoreAllMocks()
   })
 
   it('should delete successfully', async () => {
     const idLogistica = chance.natural()
-    const spy = jest.spyOn(repository, 'destroy')
+    const spy = vi.spyOn(repository, 'destroy')
     repository.setResponse(deleteResponse)
 
     const response = await entity.delete({ idLogistica })
@@ -37,7 +37,7 @@ describe('Logísticas entity', () => {
   })
 
   it('should get successfully', async () => {
-    const spy = jest.spyOn(repository, 'index')
+    const spy = vi.spyOn(repository, 'index')
     repository.setResponse(getResponse)
 
     const response = await entity.get()
@@ -55,7 +55,7 @@ describe('Logísticas entity', () => {
   })
 
   it('should find successfully', async () => {
-    const spy = jest.spyOn(repository, 'show')
+    const spy = vi.spyOn(repository, 'show')
     const idLogistica = chance.natural()
     repository.setResponse(findResponse)
 
@@ -69,7 +69,7 @@ describe('Logísticas entity', () => {
   })
 
   it('should create successfully', async () => {
-    const spy = jest.spyOn(repository, 'store')
+    const spy = vi.spyOn(repository, 'store')
     repository.setResponse(createResponse)
 
     const response = await entity.create(createRequestBody)
@@ -82,7 +82,7 @@ describe('Logísticas entity', () => {
   })
 
   it('should update successfully', async () => {
-    const spy = jest.spyOn(repository, 'replace')
+    const spy = vi.spyOn(repository, 'replace')
     const idLogistica = chance.natural()
     repository.setResponse(updateResponse)
 

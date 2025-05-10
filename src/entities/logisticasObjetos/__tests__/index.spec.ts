@@ -18,12 +18,12 @@ describe('Logísticas - objetos entity', () => {
   })
 
   afterEach(() => {
-    jest.restoreAllMocks()
+    vi.restoreAllMocks()
   })
 
   it('should delete successfully', async () => {
     const idObjeto = chance.natural()
-    const spy = jest.spyOn(repository, 'destroy')
+    const spy = vi.spyOn(repository, 'destroy')
     repository.setResponse(deleteResponse)
 
     const response = await entity.delete({ idObjeto })
@@ -36,7 +36,7 @@ describe('Logísticas - objetos entity', () => {
   })
 
   it('should find successfully', async () => {
-    const spy = jest.spyOn(repository, 'show')
+    const spy = vi.spyOn(repository, 'show')
     const idObjeto = chance.natural()
     repository.setResponse(findResponse)
 
@@ -50,7 +50,7 @@ describe('Logísticas - objetos entity', () => {
   })
 
   it('should create successfully', async () => {
-    const spy = jest.spyOn(repository, 'store')
+    const spy = vi.spyOn(repository, 'store')
     repository.setResponse(createResponse)
 
     const response = await entity.create(createRequestBody)
@@ -63,7 +63,7 @@ describe('Logísticas - objetos entity', () => {
   })
 
   it('should update successfully', async () => {
-    const spy = jest.spyOn(repository, 'replace')
+    const spy = vi.spyOn(repository, 'replace')
     const idObjeto = chance.natural()
     repository.setResponse(updateResponse)
 

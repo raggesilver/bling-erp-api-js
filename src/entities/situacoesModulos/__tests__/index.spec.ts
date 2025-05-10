@@ -18,11 +18,11 @@ describe('Situações - Módulos entity', () => {
   })
 
   afterEach(() => {
-    jest.restoreAllMocks()
+    vi.restoreAllMocks()
   })
 
   it('should get modules successfully', async () => {
-    const spy = jest.spyOn(repository, 'index')
+    const spy = vi.spyOn(repository, 'index')
     repository.setResponse(getModulesResponse)
 
     const response = await entity.getModules()
@@ -34,7 +34,7 @@ describe('Situações - Módulos entity', () => {
   })
 
   it('should get module situations successfully', async () => {
-    const spy = jest.spyOn(repository, 'show')
+    const spy = vi.spyOn(repository, 'show')
     const idModuloSistema = chance.natural()
     repository.setResponse(getModuleSituationsResponse)
 
@@ -48,7 +48,7 @@ describe('Situações - Módulos entity', () => {
   })
 
   it('should get module actions successfully', async () => {
-    const spy = jest.spyOn(repository, 'show')
+    const spy = vi.spyOn(repository, 'show')
     const idModuloSistema = chance.natural()
     repository.setResponse(getModuleActionsResponse)
 
@@ -62,7 +62,7 @@ describe('Situações - Módulos entity', () => {
   })
 
   it('should get module transitions successfully', async () => {
-    const spy = jest.spyOn(repository, 'show')
+    const spy = vi.spyOn(repository, 'show')
     const idModuloSistema = chance.natural()
     repository.setResponse(getModuleTransitionsResponse)
 

@@ -17,12 +17,12 @@ describe('Usuários entity', () => {
   })
 
   afterEach(() => {
-    jest.restoreAllMocks()
+    vi.restoreAllMocks()
   })
 
   it('should validate hash successfully', async () => {
     const hash = chance.word()
-    const spy = jest.spyOn(repository, 'index')
+    const spy = vi.spyOn(repository, 'index')
     repository.setResponse(validateHashResponse)
 
     const response = await entity.validateHash({ hash })
@@ -35,7 +35,7 @@ describe('Usuários entity', () => {
   })
 
   it('should change password successfully', async () => {
-    const spy = jest.spyOn(repository, 'update')
+    const spy = vi.spyOn(repository, 'update')
     const password = chance.word()
     repository.setResponse(changePasswordResponse)
 
@@ -50,7 +50,7 @@ describe('Usuários entity', () => {
   })
 
   it('should recover password successfully', async () => {
-    const spy = jest.spyOn(repository, 'store')
+    const spy = vi.spyOn(repository, 'store')
     const email = chance.email()
     repository.setResponse(recoverPasswordResponse)
 

@@ -3,9 +3,7 @@ import { NaturezasDeOperacoes } from '..'
 import { InMemoryBlingRepository } from '../../../repositories/bling-in-memory.repository'
 import { IObtainTaxResponse } from '../interfaces/obtain-tax.interface'
 import { IGetResponse } from '../interfaces/get.interface'
-import obtainTaxResponse, {
-  obtainTaxRequestBody
-} from './obtain-tax-response'
+import obtainTaxResponse, { obtainTaxRequestBody } from './obtain-tax-response'
 import getResponse from './get-response'
 
 const chance = Chance()
@@ -20,11 +18,11 @@ describe('Naturezas de Operação entity', () => {
   })
 
   afterEach(() => {
-    jest.restoreAllMocks()
+    vi.restoreAllMocks()
   })
 
   it('should get successfully', async () => {
-    const spy = jest.spyOn(repository, 'index')
+    const spy = vi.spyOn(repository, 'index')
     repository.setResponse(getResponse)
 
     const response = await entity.get()
@@ -45,7 +43,7 @@ describe('Naturezas de Operação entity', () => {
   })
 
   it('should obtain tax successfully', async () => {
-    const spy = jest.spyOn(repository, 'store')
+    const spy = vi.spyOn(repository, 'store')
     const idNaturezaOperacao = chance.natural()
     repository.setResponse(obtainTaxResponse)
 
@@ -60,8 +58,7 @@ describe('Naturezas de Operação entity', () => {
     })
     expect(response).toBe(obtainTaxResponse)
 
-    const typingResponseTest: IObtainTaxResponse =
-      obtainTaxResponse
+    const typingResponseTest: IObtainTaxResponse = obtainTaxResponse
     expect(typingResponseTest).toBe(obtainTaxResponse)
   })
 })

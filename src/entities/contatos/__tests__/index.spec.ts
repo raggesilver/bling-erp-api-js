@@ -33,7 +33,7 @@ describe('Contatos entity', () => {
   })
 
   afterEach(() => {
-    jest.restoreAllMocks()
+    vi.restoreAllMocks()
   })
 
   it('should delete many successfully', async () => {
@@ -41,7 +41,7 @@ describe('Contatos entity', () => {
     for (let i = 0; i < chance.natural({ min: 2, max: 10 }); i++) {
       idsContatos.push(chance.natural())
     }
-    const spy = jest.spyOn(repository, 'destroy')
+    const spy = vi.spyOn(repository, 'destroy')
     repository.setResponse(deleteManyResponse)
 
     const response = await entity.deleteMany({ idsContatos })
@@ -59,7 +59,7 @@ describe('Contatos entity', () => {
 
   it('should delete successfully', async () => {
     const idContato = chance.natural()
-    const spy = jest.spyOn(repository, 'destroy')
+    const spy = vi.spyOn(repository, 'destroy')
     repository.setResponse(deleteResponse)
 
     const response = await entity.delete({ idContato })
@@ -75,7 +75,7 @@ describe('Contatos entity', () => {
   })
 
   it('should get successfully', async () => {
-    const spy = jest.spyOn(repository, 'index')
+    const spy = vi.spyOn(repository, 'index')
     repository.setResponse(getResponse)
 
     const response = await entity.get()
@@ -106,7 +106,7 @@ describe('Contatos entity', () => {
   })
 
   it('should find successfully', async () => {
-    const spy = jest.spyOn(repository, 'show')
+    const spy = vi.spyOn(repository, 'show')
     const idContato = chance.natural()
     repository.setResponse(findResponse)
 
@@ -123,7 +123,7 @@ describe('Contatos entity', () => {
   })
 
   it('should find types successfully', async () => {
-    const spy = jest.spyOn(repository, 'show')
+    const spy = vi.spyOn(repository, 'show')
     const idContato = chance.natural()
     repository.setResponse(findTypesResponse)
 
@@ -140,7 +140,7 @@ describe('Contatos entity', () => {
   })
 
   it('should find final customer successfully', async () => {
-    const spy = jest.spyOn(repository, 'index')
+    const spy = vi.spyOn(repository, 'index')
     repository.setResponse(findFinalCustomerResponse)
 
     const response = await entity.findFinalCustomer()
@@ -156,7 +156,7 @@ describe('Contatos entity', () => {
   })
 
   it('should change situation successfully', async () => {
-    const spy = jest.spyOn(repository, 'replace')
+    const spy = vi.spyOn(repository, 'replace')
     const idContato = chance.natural()
     repository.setResponse(changeSituationResponse)
 
@@ -177,7 +177,7 @@ describe('Contatos entity', () => {
   })
 
   it('should change situation many successfully', async () => {
-    const spy = jest.spyOn(repository, 'store')
+    const spy = vi.spyOn(repository, 'store')
     repository.setResponse(changeSituationManyResponse)
 
     const response = await entity.changeSituationMany(
@@ -195,7 +195,7 @@ describe('Contatos entity', () => {
   })
 
   it('should create successfully', async () => {
-    const spy = jest.spyOn(repository, 'store')
+    const spy = vi.spyOn(repository, 'store')
     repository.setResponse(createResponse)
 
     const response = await entity.create(createRequestBody)
@@ -211,7 +211,7 @@ describe('Contatos entity', () => {
   })
 
   it('should update successfully', async () => {
-    const spy = jest.spyOn(repository, 'replace')
+    const spy = vi.spyOn(repository, 'replace')
     const idContato = chance.natural()
     repository.setResponse(updateResponse)
 

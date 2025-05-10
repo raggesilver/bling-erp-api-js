@@ -21,11 +21,11 @@ describe('Estoques entity', () => {
   })
 
   afterEach(() => {
-    jest.restoreAllMocks()
+    vi.restoreAllMocks()
   })
 
   it('should find balance successfully', async () => {
-    const spy = jest.spyOn(repository, 'show')
+    const spy = vi.spyOn(repository, 'show')
     const idDeposito = chance.natural()
     const idsProdutos: number[] = []
     for (let i = 0; i < chance.natural({ min: 2, max: 5 }); i++) {
@@ -46,7 +46,7 @@ describe('Estoques entity', () => {
   })
 
   it('should get balances successfully', async () => {
-    const spy = jest.spyOn(repository, 'index')
+    const spy = vi.spyOn(repository, 'index')
     const idsProdutos: number[] = []
     for (let i = 0; i < chance.natural({ min: 2, max: 5 }); i++) {
       idsProdutos.push(chance.natural())
@@ -65,7 +65,7 @@ describe('Estoques entity', () => {
   })
 
   it('should create successfully', async () => {
-    const spy = jest.spyOn(repository, 'store')
+    const spy = vi.spyOn(repository, 'store')
     repository.setResponse(createResponse)
 
     const response = await entity.create(createRequestBody)
@@ -80,7 +80,7 @@ describe('Estoques entity', () => {
   })
 
   it('should update successfully', async () => {
-    const spy = jest.spyOn(repository, 'replace')
+    const spy = vi.spyOn(repository, 'replace')
     const idEstoque = chance.natural()
     repository.setResponse(updateResponse)
 

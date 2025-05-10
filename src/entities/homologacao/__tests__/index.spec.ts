@@ -21,12 +21,12 @@ describe('Homologação entity', () => {
   })
 
   afterEach(() => {
-    jest.restoreAllMocks()
+    vi.restoreAllMocks()
   })
 
   it('should delete successfully', async () => {
     const idProdutoHomologacao = chance.natural()
-    const spy = jest.spyOn(repository, 'destroy')
+    const spy = vi.spyOn(repository, 'destroy')
     repository.setResponse(deleteResponse)
     const hash = chance.word()
 
@@ -47,7 +47,7 @@ describe('Homologação entity', () => {
   })
 
   it('should get successfully', async () => {
-    const spy = jest.spyOn(repository, 'index')
+    const spy = vi.spyOn(repository, 'index')
     repository.setResponse(getResponse)
 
     const response = await entity.get()
@@ -60,7 +60,7 @@ describe('Homologação entity', () => {
   })
 
   it('should change situation successfully', async () => {
-    const spy = jest.spyOn(repository, 'update')
+    const spy = vi.spyOn(repository, 'update')
     const idProdutoHomologacao = chance.natural()
     repository.setResponse(changeSituationResponse)
     const hash = chance.word()
@@ -84,7 +84,7 @@ describe('Homologação entity', () => {
   })
 
   it('should create successfully', async () => {
-    const spy = jest.spyOn(repository, 'store')
+    const spy = vi.spyOn(repository, 'store')
     repository.setResponse(createResponse)
     const hash = chance.word()
 
@@ -105,7 +105,7 @@ describe('Homologação entity', () => {
   })
 
   it('should update successfully', async () => {
-    const spy = jest.spyOn(repository, 'replace')
+    const spy = vi.spyOn(repository, 'replace')
     const idProdutoHomologacao = chance.natural()
     repository.setResponse(updateResponse)
     const hash = chance.word()
@@ -129,11 +129,11 @@ describe('Homologação entity', () => {
   })
 
   it('should execute successfully', async () => {
-    const getSpy = jest.spyOn(repository, 'index')
-    const postSpy = jest.spyOn(repository, 'store')
-    const putSpy = jest.spyOn(repository, 'replace')
-    const patchSpy = jest.spyOn(repository, 'update')
-    const deleteSpy = jest.spyOn(repository, 'destroy')
+    const getSpy = vi.spyOn(repository, 'index')
+    const postSpy = vi.spyOn(repository, 'store')
+    const putSpy = vi.spyOn(repository, 'replace')
+    const patchSpy = vi.spyOn(repository, 'update')
+    const deleteSpy = vi.spyOn(repository, 'destroy')
     repository.setIndexResponse(getResponse)
     repository.setStoreResponse(createResponse)
     repository.setUpdateResponse(changeSituationResponse)

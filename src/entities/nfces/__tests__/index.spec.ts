@@ -29,11 +29,11 @@ describe('NFC-es entity', () => {
   })
 
   afterEach(() => {
-    jest.restoreAllMocks()
+    vi.restoreAllMocks()
   })
 
   it('should get successfully', async () => {
-    const spy = jest.spyOn(repository, 'index')
+    const spy = vi.spyOn(repository, 'index')
     repository.setResponse(getResponse)
 
     const response = await entity.get()
@@ -55,7 +55,7 @@ describe('NFC-es entity', () => {
   })
 
   it('should find successfully', async () => {
-    const spy = jest.spyOn(repository, 'show')
+    const spy = vi.spyOn(repository, 'show')
     const idNotaFiscalConsumidor = chance.natural()
     repository.setResponse(findResponse)
 
@@ -72,7 +72,7 @@ describe('NFC-es entity', () => {
   })
 
   it('should create successfully', async () => {
-    const spy = jest.spyOn(repository, 'store')
+    const spy = vi.spyOn(repository, 'store')
     repository.setResponse(createResponse)
 
     const response = await entity.create(createRequestBody)
@@ -88,7 +88,7 @@ describe('NFC-es entity', () => {
   })
 
   it('should send successfully', async () => {
-    const spy = jest.spyOn(repository, 'store')
+    const spy = vi.spyOn(repository, 'store')
     const idNotaFiscalConsumidor = chance.natural()
     repository.setResponse(sendResponse)
 
@@ -105,7 +105,7 @@ describe('NFC-es entity', () => {
   })
 
   it('should post accounts successfully', async () => {
-    const spy = jest.spyOn(repository, 'store')
+    const spy = vi.spyOn(repository, 'store')
     const idNotaFiscalConsumidor = chance.natural()
     repository.setResponse(postAccountsResponse)
 
@@ -122,7 +122,7 @@ describe('NFC-es entity', () => {
   })
 
   it('should reverse accounts successfully', async () => {
-    const spy = jest.spyOn(repository, 'store')
+    const spy = vi.spyOn(repository, 'store')
     const idNotaFiscalConsumidor = chance.natural()
     repository.setResponse(reverseAccountsResponse)
 
@@ -139,7 +139,7 @@ describe('NFC-es entity', () => {
   })
 
   it('should post stock successfully', async () => {
-    const spy = jest.spyOn(repository, 'store')
+    const spy = vi.spyOn(repository, 'store')
     const idNotaFiscalConsumidor = chance.natural()
     repository.setResponse(postStockResponse)
 
@@ -156,7 +156,7 @@ describe('NFC-es entity', () => {
   })
 
   it('should post stock to deposit successfully', async () => {
-    const spy = jest.spyOn(repository, 'store')
+    const spy = vi.spyOn(repository, 'store')
     const idNotaFiscalConsumidor = chance.natural()
     const idDeposito = chance.natural()
     repository.setResponse(postStockToDepositResponse)
@@ -177,7 +177,7 @@ describe('NFC-es entity', () => {
   })
 
   it('should reverse stock successfully', async () => {
-    const spy = jest.spyOn(repository, 'store')
+    const spy = vi.spyOn(repository, 'store')
     const idNotaFiscalConsumidor = chance.natural()
     repository.setResponse(reverseStockResponse)
 
@@ -194,7 +194,7 @@ describe('NFC-es entity', () => {
   })
 
   it('should update successfully', async () => {
-    const spy = jest.spyOn(repository, 'replace')
+    const spy = vi.spyOn(repository, 'replace')
     const idNotaFiscalConsumidor = chance.natural()
     repository.setResponse(updateResponse)
 

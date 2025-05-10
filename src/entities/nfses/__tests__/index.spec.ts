@@ -29,12 +29,12 @@ describe('NFS-es entity', () => {
   })
 
   afterEach(() => {
-    jest.restoreAllMocks()
+    vi.restoreAllMocks()
   })
 
   it('should delete successfully', async () => {
     const idNotaServico = chance.natural()
-    const spy = jest.spyOn(repository, 'destroy')
+    const spy = vi.spyOn(repository, 'destroy')
     repository.setResponse(deleteResponse)
 
     const response = await entity.delete({ idNotaServico })
@@ -50,7 +50,7 @@ describe('NFS-es entity', () => {
   })
 
   it('should get successfully', async () => {
-    const spy = jest.spyOn(repository, 'index')
+    const spy = vi.spyOn(repository, 'index')
     repository.setResponse(getResponse)
 
     const response = await entity.get()
@@ -73,7 +73,7 @@ describe('NFS-es entity', () => {
   })
 
   it('should find successfully', async () => {
-    const spy = jest.spyOn(repository, 'show')
+    const spy = vi.spyOn(repository, 'show')
     const idNotaServico = chance.natural()
     repository.setResponse(findResponse)
 
@@ -90,7 +90,7 @@ describe('NFS-es entity', () => {
   })
 
   it('should get configurations successfully', async () => {
-    const spy = jest.spyOn(repository, 'index')
+    const spy = vi.spyOn(repository, 'index')
     repository.setResponse(getConfigurationsResponse)
 
     const response = await entity.getConfigurations()
@@ -100,12 +100,13 @@ describe('NFS-es entity', () => {
     })
     expect(response).toBe(getConfigurationsResponse)
 
-    const typingResponseTest: IGetConfigurationsResponse = getConfigurationsResponse
+    const typingResponseTest: IGetConfigurationsResponse =
+      getConfigurationsResponse
     expect(typingResponseTest).toBe(getConfigurationsResponse)
   })
 
   it('should create successfully', async () => {
-    const spy = jest.spyOn(repository, 'store')
+    const spy = vi.spyOn(repository, 'store')
     repository.setResponse(createResponse)
 
     const response = await entity.create(createRequestBody)
@@ -121,7 +122,7 @@ describe('NFS-es entity', () => {
   })
 
   it('should send successfully', async () => {
-    const spy = jest.spyOn(repository, 'store')
+    const spy = vi.spyOn(repository, 'store')
     const idNotaServico = chance.natural()
     repository.setResponse(sendResponse)
 
@@ -138,7 +139,7 @@ describe('NFS-es entity', () => {
   })
 
   it('should cancel successfully', async () => {
-    const spy = jest.spyOn(repository, 'store')
+    const spy = vi.spyOn(repository, 'store')
     const idNotaServico = chance.natural()
     repository.setResponse(cancelResponse)
 
@@ -155,7 +156,7 @@ describe('NFS-es entity', () => {
   })
 
   it('should update configurations successfully', async () => {
-    const spy = jest.spyOn(repository, 'replace')
+    const spy = vi.spyOn(repository, 'replace')
     repository.setResponse(updateConfigurationsResponse)
 
     const response = await entity.updateConfigurations(

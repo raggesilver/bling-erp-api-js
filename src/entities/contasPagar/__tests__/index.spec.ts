@@ -20,12 +20,12 @@ describe('Contas a pagar entity', () => {
   })
 
   afterEach(() => {
-    jest.restoreAllMocks()
+    vi.restoreAllMocks()
   })
 
   it('should delete successfully', async () => {
     const idContaPagar = chance.natural()
-    const spy = jest.spyOn(repository, 'destroy')
+    const spy = vi.spyOn(repository, 'destroy')
     repository.setResponse(deleteResponse)
 
     const response = await entity.delete({ idContaPagar })
@@ -38,7 +38,7 @@ describe('Contas a pagar entity', () => {
   })
 
   it('should find successfully', async () => {
-    const spy = jest.spyOn(repository, 'show')
+    const spy = vi.spyOn(repository, 'show')
     const idContaPagar = chance.natural()
     repository.setResponse(findResponse)
 
@@ -52,7 +52,7 @@ describe('Contas a pagar entity', () => {
   })
 
   it('should get successfully', async () => {
-    const spy = jest.spyOn(repository, 'index')
+    const spy = vi.spyOn(repository, 'index')
     repository.setResponse(getResponse)
 
     const response = await entity.get()
@@ -76,7 +76,7 @@ describe('Contas a pagar entity', () => {
   })
 
   it('should create successfully', async () => {
-    const spy = jest.spyOn(repository, 'store')
+    const spy = vi.spyOn(repository, 'store')
     repository.setResponse(createResponse)
 
     const response = await entity.create(createRequestBody)
@@ -90,7 +90,7 @@ describe('Contas a pagar entity', () => {
 
   it('should download successfully', async () => {
     const idContaPagar = chance.natural()
-    const spy = jest.spyOn(repository, 'store')
+    const spy = vi.spyOn(repository, 'store')
     repository.setResponse(downloadResponse)
 
     const response = await entity.download({
@@ -106,7 +106,7 @@ describe('Contas a pagar entity', () => {
   })
 
   it('should update successfully', async () => {
-    const spy = jest.spyOn(repository, 'replace')
+    const spy = vi.spyOn(repository, 'replace')
     const idContaPagar = chance.natural()
     repository.setResponse(updateResponse)
 

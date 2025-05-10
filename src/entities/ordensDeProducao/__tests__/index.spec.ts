@@ -27,12 +27,12 @@ describe('OrdensDeProducao entity', () => {
   })
 
   afterEach(() => {
-    jest.restoreAllMocks()
+    vi.restoreAllMocks()
   })
 
   it('should delete successfully', async () => {
     const idOrdemProducao = chance.natural()
-    const spy = jest.spyOn(repository, 'destroy')
+    const spy = vi.spyOn(repository, 'destroy')
     repository.setResponse(deleteResponse)
 
     const response = await entity.delete({ idOrdemProducao })
@@ -48,7 +48,7 @@ describe('OrdensDeProducao entity', () => {
   })
 
   it('should get successfully', async () => {
-    const spy = jest.spyOn(repository, 'index')
+    const spy = vi.spyOn(repository, 'index')
     repository.setResponse(getResponse)
 
     const response = await entity.get()
@@ -68,7 +68,7 @@ describe('OrdensDeProducao entity', () => {
   })
 
   it('should find successfully', async () => {
-    const spy = jest.spyOn(repository, 'show')
+    const spy = vi.spyOn(repository, 'show')
     const idOrdemProducao = chance.natural()
     repository.setResponse(findResponse)
 
@@ -85,7 +85,7 @@ describe('OrdensDeProducao entity', () => {
   })
 
   it('should create successfully', async () => {
-    const spy = jest.spyOn(repository, 'store')
+    const spy = vi.spyOn(repository, 'store')
     repository.setResponse(createResponse)
 
     const response = await entity.create(createRequestBody)
@@ -101,7 +101,7 @@ describe('OrdensDeProducao entity', () => {
   })
 
   it('should generate over demand successfully', async () => {
-    const spy = jest.spyOn(repository, 'store')
+    const spy = vi.spyOn(repository, 'store')
     repository.setResponse(generateOverDemandResponse)
 
     const response = await entity.generateOverDemand()
@@ -112,12 +112,13 @@ describe('OrdensDeProducao entity', () => {
     })
     expect(response).toBe(generateOverDemandResponse)
 
-    const typingResponseTest: IGenerateOverDemandResponse = generateOverDemandResponse
+    const typingResponseTest: IGenerateOverDemandResponse =
+      generateOverDemandResponse
     expect(typingResponseTest).toBe(generateOverDemandResponse)
   })
 
   it('should update successfully', async () => {
-    const spy = jest.spyOn(repository, 'replace')
+    const spy = vi.spyOn(repository, 'replace')
     const idOrdemProducao = chance.natural()
     repository.setResponse(updateResponse)
 
@@ -138,7 +139,7 @@ describe('OrdensDeProducao entity', () => {
   })
 
   it('should change situation successfully', async () => {
-    const spy = jest.spyOn(repository, 'update')
+    const spy = vi.spyOn(repository, 'update')
     const idOrdemProducao = chance.natural()
     repository.setResponse(changeSituationResponse)
 

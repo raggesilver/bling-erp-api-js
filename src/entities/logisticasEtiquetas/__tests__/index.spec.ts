@@ -16,11 +16,11 @@ describe('Logísticas - Etiquetas entity', () => {
   })
 
   afterEach(() => {
-    jest.restoreAllMocks()
+    vi.restoreAllMocks()
   })
 
   it('should get successfully', async () => {
-    const spy = jest.spyOn(repository, 'index')
+    const spy = vi.spyOn(repository, 'index')
     repository.setResponse(getResponse)
     const formato = chance.pickone(['PDF', 'ZPL']) as IFormato
     const idsVendas: number[] = []

@@ -27,7 +27,7 @@ describe('PropostasComerciais entity', () => {
   })
 
   afterEach(() => {
-    jest.restoreAllMocks()
+    vi.restoreAllMocks()
   })
 
   it('should delete many successfully', async () => {
@@ -35,7 +35,7 @@ describe('PropostasComerciais entity', () => {
     for (let i = 0; i < chance.natural({ min: 1, max: 5 }); i++) {
       idsPropostasComerciais.push(chance.natural())
     }
-    const spy = jest.spyOn(repository, 'destroy')
+    const spy = vi.spyOn(repository, 'destroy')
     repository.setResponse(deleteManyResponse)
 
     const response = await entity.deleteMany({ idsPropostasComerciais })
@@ -53,7 +53,7 @@ describe('PropostasComerciais entity', () => {
 
   it('should delete successfully', async () => {
     const idPropostaComercial = chance.natural()
-    const spy = jest.spyOn(repository, 'destroy')
+    const spy = vi.spyOn(repository, 'destroy')
     repository.setResponse(deleteResponse)
 
     const response = await entity.delete({ idPropostaComercial })
@@ -69,7 +69,7 @@ describe('PropostasComerciais entity', () => {
   })
 
   it('should get successfully', async () => {
-    const spy = jest.spyOn(repository, 'index')
+    const spy = vi.spyOn(repository, 'index')
     repository.setResponse(getResponse)
 
     const response = await entity.get()
@@ -82,7 +82,7 @@ describe('PropostasComerciais entity', () => {
         dataInicial: undefined,
         dataFinal: undefined,
         pagina: undefined,
-        limite: undefined,
+        limite: undefined
       }
     })
     expect(response).toBe(getResponse)
@@ -92,7 +92,7 @@ describe('PropostasComerciais entity', () => {
   })
 
   it('should find successfully', async () => {
-    const spy = jest.spyOn(repository, 'show')
+    const spy = vi.spyOn(repository, 'show')
     const idPropostaComercial = chance.natural()
     repository.setResponse(findResponse)
 
@@ -109,7 +109,7 @@ describe('PropostasComerciais entity', () => {
   })
 
   it('should change situation successfully', async () => {
-    const spy = jest.spyOn(repository, 'update')
+    const spy = vi.spyOn(repository, 'update')
     const idPropostaComercial = chance.natural()
     repository.setResponse(changeSituationResponse)
 
@@ -130,7 +130,7 @@ describe('PropostasComerciais entity', () => {
   })
 
   it('should create successfully', async () => {
-    const spy = jest.spyOn(repository, 'store')
+    const spy = vi.spyOn(repository, 'store')
     repository.setResponse(createResponse)
 
     const response = await entity.create(createRequestBody)
@@ -146,7 +146,7 @@ describe('PropostasComerciais entity', () => {
   })
 
   it('should update successfully', async () => {
-    const spy = jest.spyOn(repository, 'replace')
+    const spy = vi.spyOn(repository, 'replace')
     const idPropostaComercial = chance.natural()
     repository.setResponse(updateResponse)
 

@@ -21,11 +21,11 @@ describe('Produtos - Variações entity', () => {
   })
 
   afterEach(() => {
-    jest.restoreAllMocks()
+    vi.restoreAllMocks()
   })
 
   it('should find successfully', async () => {
-    const spy = jest.spyOn(repository, 'show')
+    const spy = vi.spyOn(repository, 'show')
     const idProdutoPai = chance.natural()
     repository.setResponse(findResponse)
 
@@ -39,7 +39,7 @@ describe('Produtos - Variações entity', () => {
   })
 
   it('should change attribute name successfully', async () => {
-    const spy = jest.spyOn(repository, 'update')
+    const spy = vi.spyOn(repository, 'update')
     const idProdutoPai = chance.natural()
     repository.setResponse(changeAttributeNameResponse)
 
@@ -57,7 +57,7 @@ describe('Produtos - Variações entity', () => {
   })
 
   it('should generate combinations successfully', async () => {
-    const spy = jest.spyOn(repository, 'store')
+    const spy = vi.spyOn(repository, 'store')
     repository.setResponse(generateCombinationsResponse)
 
     const response = await entity.generateCombinations(

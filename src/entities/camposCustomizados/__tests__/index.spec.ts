@@ -23,12 +23,12 @@ describe('Campos customizados entity', () => {
   })
 
   afterEach(() => {
-    jest.restoreAllMocks()
+    vi.restoreAllMocks()
   })
 
   it('should delete successfully', async () => {
     const idCampoCustomizado = chance.natural()
-    const spy = jest.spyOn(repository, 'destroy')
+    const spy = vi.spyOn(repository, 'destroy')
     repository.setResponse(deleteResponse)
 
     const response = await entity.delete({ idCampoCustomizado })
@@ -41,7 +41,7 @@ describe('Campos customizados entity', () => {
   })
 
   it('should get modules successfully', async () => {
-    const spy = jest.spyOn(repository, 'index')
+    const spy = vi.spyOn(repository, 'index')
     repository.setResponse(getModulesResponse)
 
     const response = await entity.getModules()
@@ -53,7 +53,7 @@ describe('Campos customizados entity', () => {
   })
 
   it('should get types successfully', async () => {
-    const spy = jest.spyOn(repository, 'index')
+    const spy = vi.spyOn(repository, 'index')
     repository.setResponse(getTypesResponse)
 
     const response = await entity.getTypes()
@@ -65,7 +65,7 @@ describe('Campos customizados entity', () => {
   })
 
   it('should find by module successfully', async () => {
-    const spy = jest.spyOn(repository, 'show')
+    const spy = vi.spyOn(repository, 'show')
     const idModulo = chance.natural()
     const pagina = chance.pickone([chance.natural(), undefined])
     const limite = chance.pickone([chance.natural(), undefined])
@@ -85,7 +85,7 @@ describe('Campos customizados entity', () => {
   })
 
   it('should find successfully', async () => {
-    const spy = jest.spyOn(repository, 'show')
+    const spy = vi.spyOn(repository, 'show')
     const idCampoCustomizado = chance.natural()
     repository.setResponse(findResponse)
 
@@ -99,7 +99,7 @@ describe('Campos customizados entity', () => {
   })
 
   it('should change situation successfully', async () => {
-    const spy = jest.spyOn(repository, 'update')
+    const spy = vi.spyOn(repository, 'update')
     const idCampoCustomizado = chance.natural()
     const situacao = chance.pickone([0, 1]) as ISituacao
     repository.setResponse(changeSituationResponse)
@@ -118,7 +118,7 @@ describe('Campos customizados entity', () => {
   })
 
   it('should create successfully', async () => {
-    const spy = jest.spyOn(repository, 'store')
+    const spy = vi.spyOn(repository, 'store')
     repository.setResponse(createResponse)
 
     const response = await entity.create(createRequestBody)
@@ -131,7 +131,7 @@ describe('Campos customizados entity', () => {
   })
 
   it('should update successfully', async () => {
-    const spy = jest.spyOn(repository, 'update')
+    const spy = vi.spyOn(repository, 'update')
     const idCampoCustomizado = chance.natural()
     repository.setResponse(updateResponse)
 

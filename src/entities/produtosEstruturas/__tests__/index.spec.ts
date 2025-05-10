@@ -24,7 +24,7 @@ describe('Produtos- Estruturas entity', () => {
   })
 
   afterEach(() => {
-    jest.restoreAllMocks()
+    vi.restoreAllMocks()
   })
 
   it('should delete components successfully', async () => {
@@ -33,7 +33,7 @@ describe('Produtos- Estruturas entity', () => {
     for (let i = 0; i < chance.natural({ min: 1, max: 5 }); i++) {
       idsComponentes.push(chance.natural())
     }
-    const spy = jest.spyOn(repository, 'destroy')
+    const spy = vi.spyOn(repository, 'destroy')
     repository.setResponse(deleteComponentsResponse)
 
     const response = await entity.deleteComponents({
@@ -54,7 +54,7 @@ describe('Produtos- Estruturas entity', () => {
     for (let i = 0; i < chance.natural({ min: 1, max: 5 }); i++) {
       idsProdutos.push(chance.natural())
     }
-    const spy = jest.spyOn(repository, 'destroy')
+    const spy = vi.spyOn(repository, 'destroy')
     repository.setResponse(deleteResponse)
 
     const response = await entity.delete({ idsProdutos })
@@ -68,7 +68,7 @@ describe('Produtos- Estruturas entity', () => {
   })
 
   it('should find successfully', async () => {
-    const spy = jest.spyOn(repository, 'show')
+    const spy = vi.spyOn(repository, 'show')
     const idProdutoEstrutura = chance.natural()
     repository.setResponse(findResponse)
 
@@ -84,7 +84,7 @@ describe('Produtos- Estruturas entity', () => {
   it('should change component successfully', async () => {
     const idComponente = chance.natural()
     const idProdutoEstrutura = chance.natural()
-    const spy = jest.spyOn(repository, 'update')
+    const spy = vi.spyOn(repository, 'update')
     repository.setResponse(changeComponentResponse)
 
     const response = await entity.changeComponent({
@@ -103,7 +103,7 @@ describe('Produtos- Estruturas entity', () => {
 
   it('should add component successfully', async () => {
     const idProdutoEstrutura = chance.natural()
-    const spy = jest.spyOn(repository, 'store')
+    const spy = vi.spyOn(repository, 'store')
     repository.setResponse(addComponentResponse)
 
     const response = await entity.addComponent({
@@ -119,7 +119,7 @@ describe('Produtos- Estruturas entity', () => {
   })
 
   it('should update successfully', async () => {
-    const spy = jest.spyOn(repository, 'replace')
+    const spy = vi.spyOn(repository, 'replace')
     const idProdutoEstrutura = chance.natural()
     repository.setResponse(updateResponse)
 

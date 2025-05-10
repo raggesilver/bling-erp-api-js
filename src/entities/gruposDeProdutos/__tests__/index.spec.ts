@@ -24,7 +24,7 @@ describe('GruposDeProdutos entity', () => {
   })
 
   afterEach(() => {
-    jest.restoreAllMocks()
+    vi.restoreAllMocks()
   })
 
   it('should delete many successfully', async () => {
@@ -32,7 +32,7 @@ describe('GruposDeProdutos entity', () => {
     for (let i = 0; i < chance.natural({ min: 1, max: 5 }); i++) {
       idsGruposProdutos.push(chance.natural())
     }
-    const spy = jest.spyOn(repository, 'destroy')
+    const spy = vi.spyOn(repository, 'destroy')
     repository.setResponse(deleteManyResponse)
 
     const response = await entity.deleteMany({ idsGruposProdutos })
@@ -50,7 +50,7 @@ describe('GruposDeProdutos entity', () => {
 
   it('should delete successfully', async () => {
     const idGrupoProduto = chance.natural()
-    const spy = jest.spyOn(repository, 'destroy')
+    const spy = vi.spyOn(repository, 'destroy')
     repository.setResponse(deleteResponse)
 
     const response = await entity.delete({ idGrupoProduto })
@@ -66,7 +66,7 @@ describe('GruposDeProdutos entity', () => {
   })
 
   it('should get successfully', async () => {
-    const spy = jest.spyOn(repository, 'index')
+    const spy = vi.spyOn(repository, 'index')
     repository.setResponse(getResponse)
 
     const response = await entity.get()
@@ -87,7 +87,7 @@ describe('GruposDeProdutos entity', () => {
   })
 
   it('should find successfully', async () => {
-    const spy = jest.spyOn(repository, 'show')
+    const spy = vi.spyOn(repository, 'show')
     const idGrupoProduto = chance.natural()
     repository.setResponse(findResponse)
 
@@ -104,7 +104,7 @@ describe('GruposDeProdutos entity', () => {
   })
 
   it('should create successfully', async () => {
-    const spy = jest.spyOn(repository, 'store')
+    const spy = vi.spyOn(repository, 'store')
     repository.setResponse(createResponse)
 
     const response = await entity.create(createRequestBody)
@@ -120,7 +120,7 @@ describe('GruposDeProdutos entity', () => {
   })
 
   it('should update successfully', async () => {
-    const spy = jest.spyOn(repository, 'replace')
+    const spy = vi.spyOn(repository, 'replace')
     const idGrupoProduto = chance.natural()
     repository.setResponse(updateResponse)
 

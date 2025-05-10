@@ -1,6 +1,6 @@
 {
   "name": "bling-erp-sdk",
-  "version": "5.8.0",
+  "version": "6.0.0",
   "description": "SDK não oficial para a API do Bling ERP.",
   "files": [
     "lib/**/*"

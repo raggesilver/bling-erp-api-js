@@ -37,7 +37,7 @@ pela biblioteca**. Ou seja, a biblioteca somente recebe o `access_token` gerado
 a partir do _endpoint_ `/token`. [Veja a referência](https://developer.bling.com.br/aplicativos#tokens-de-acesso).
 
 Para entender na prática como a autenticação citada acima funciona, [veja o
-projeto de demonstração](https://github.com/raggesilver/bling-erp-api-js/tree/main/demo).
+projeto de demonstração](https://github.com/raggesilver/bling-erp-sdk/tree/main/demo).
 
 ## Entidades disponíveis
 

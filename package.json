@@ -22,7 +22,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/raggesilver/bling-erp-api-js.git"
+    "url": "git+https://github.com/raggesilver/bling-erp-sdk.git"
   },
   "keywords": [
     "api",
@@ -40,9 +40,9 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/raggesilver/bling-erp-api-js/issues"
+    "url": "https://github.com/raggesilver/bling-erp-sdk/issues"
   },
-  "homepage": "https://github.com/raggesilver/bling-erp-api-js#readme",
+  "homepage": "https://github.com/raggesilver/bling-erp-sdk#readme",
   "devDependencies": {
     "@types/chance": "^1.1.6",
     "@types/uuid": "^9.0.8",
